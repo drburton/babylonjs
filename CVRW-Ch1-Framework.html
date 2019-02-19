@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Hello World using Babylon js</title>
+
+        <!-- Babylon.js -->
+        <script src="https://cdn.babylonjs.com/babylon.js"></script>
+ 
+
+        <style>
+            html, body {
+                overflow: hidden;  width: 100%;
+                height: 100%;
+            }
+
+            #renderCanvas {
+                width: 100%;
+                height: 100%;
+                touch-action: none;
+            }
+        </style>
+    </head>
+<body>
+    <canvas id="renderCanvas"></canvas>
+    <script>
+        var canvas = document.getElementById("renderCanvas");
+        var engine = new BABYLON.Engine(canvas, true);
+
+        var createScene = function() {
+            // Create scene
+        	var scene = new BABYLON.Scene(engine);
+        
+            // Your stuff goes here
+
+        	return scene;
+        };
+               
+
+        var newScene = createScene();
+
+        engine.runRenderLoop(function () {
+            if (newScene) {
+                newScene.render();
+            }
+        });
+
+        // Resize
+        window.addEventListener("resize", function () {
+            engine.resize();
+        });
+    </script>
+</body>
+</html>
